@@ -1,0 +1,15 @@
+<h3>Retry, RetryWhen, Scan, Delay</h3>
+<div>
+    <button class="btn"
+        [ngClass]="status==='noData'?'btn-primary'
+        :status==='fetching'?'btn-primary'
+        :status==='error'?'btn-danger'
+        :status==='success'?'btn-success'
+        :''"
+        (click)="fetchData()"
+        >
+        {{status==='noData'?'Fetch Data':status==='fetching'?'Loading
+        ...':status==='error'?'Error':status==='success'?'Success':''}}
+    </button><br>
+    <div>Status : <strong>{{badge}}</strong></div>
+</div>

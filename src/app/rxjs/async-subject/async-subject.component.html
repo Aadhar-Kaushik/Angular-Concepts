@@ -1,0 +1,23 @@
+<h3>Async Subject</h3>
+
+<div class="row">
+    <div class="col-10">
+
+        <input type="text" #vid />
+        <br>
+        <br>
+        <button class="btn btn-primary" (click)="addVideo(vid)">Add Video</button>
+    </div>
+    <br>
+    <br>
+    <div class="card col-4">
+        <div class="card-head"><strong>Complete Subscription</strong></div>
+        <div class="card-body">
+           <strong>{{name}}</strong>
+        </div>
+        <button class="btn btn-success" (click)="btnClick()" >
+            Complete Subscription
+        </button>
+    </div>
+    
+</div>

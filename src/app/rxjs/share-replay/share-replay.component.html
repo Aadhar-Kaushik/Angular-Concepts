@@ -1,0 +1,27 @@
+<h3>Share Replay</h3>
+<div class="row">
+    <div class="col-3">
+        <strong>All User Data</strong>
+        <ul>
+            <li *ngFor="let item of allUserData | async">
+                {{item.userId}} -- {{item.title}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <strong>User Id 1 Data</strong>
+        <ul>
+            <li *ngFor="let item of userId1Data | async">
+                {{item.userId}} -- {{item.title}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <strong>User Id 2 Data</strong>
+        <ul>
+            <li *ngFor="let item of userId2Data | async">
+                {{item.userId}} -- {{item.title}}
+            </li>
+        </ul>
+    </div>
+</div>

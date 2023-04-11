@@ -1,0 +1,26 @@
+<h3>Custom Observable</h3>
+<div class="row">
+
+    <div class="card col-4">
+        <div class="card-head"><strong>Ex - 01 : Manual</strong></div>
+        <div class="card-body">
+            <ul id="elContainer1" [ngClass]="{complete:status==='complete',error:status==='error'}"></ul>
+        </div>
+        <button class="btn"
+            [ngClass]="status==='complete'?'btn-success':status==='error'?'btn-danger':'btn-primary'">{{badge}}</button>
+    </div>
+    <div class="card col-4">
+        <div class="card-head"><strong>Ex - 02</strong></div>
+        <div class="card-body">
+            <ul id="elContainer2" [ngClass]="{complete:status2==='complete',error:status2==='error'}"></ul>
+        </div>
+        <button class="btn"
+            [ngClass]="status2==='complete'?'btn-success':status2==='error'?'btn-danger':'btn-primary'">{{badge2}}</button>
+    </div>
+    <div class="card col-4">
+        <div class="card-head"><strong>Ex - 03 : Print Random Names</strong></div>
+        <div class="card-body">
+            Name: <strong>{{name}}</strong>
+        </div>
+    </div>
+</div>

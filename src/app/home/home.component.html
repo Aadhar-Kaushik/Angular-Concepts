@@ -1,0 +1,7 @@
+<div class="form-control">
+<h3>Home</h3>
+
+    <ul>
+        <li *ngFor="let x of navigationList" [routerLink]="[x.link]">{{x.name}}</li>
+    </ul>
+</div>

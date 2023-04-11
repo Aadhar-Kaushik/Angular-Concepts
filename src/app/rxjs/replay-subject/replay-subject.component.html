@@ -1,0 +1,45 @@
+<h3>Replay Subject</h3>
+
+<div class="row">
+    <div class="col-10">
+
+        <input type="text" #vid />
+        <br>
+        <br>
+        <button class="btn btn-primary" (click)="addVideo(vid)">Add Video</button>
+    </div>
+    <br>
+    <br>
+    <div class="card col-4">
+        <div class="card-head"><strong>User 1</strong></div>
+        <div class="card-body">
+            <ul id="elContainer1">
+                <li *ngFor="let u of user1List">{{u}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="card col-4">
+        <div class="card-head"><strong>User 2</strong></div>
+        <div class="card-body">
+            <ul id="elContainer2">
+                <li *ngFor="let u of user2List">{{u}}</li>
+            </ul>
+        </div>
+        <button class="btn" (click)="btn2Click()" [ngClass]="toggle2?'btn-success':'btn-danger'">
+            {{toggle2?'Subscribe':'Unsubscribe'}}
+        </button>
+
+    </div>
+    <div class="card col-4">
+        <div class="card-head"><strong>User 3</strong></div>
+        <div class="card-body">
+            <ul id="elContainer3">
+                <li *ngFor="let u of user3List">{{u}}</li>
+            </ul>
+        </div>
+        <button class="btn" (click)="btn3Click()" [ngClass]="toggle3?'btn-success':'btn-danger'">
+            {{toggle3?'Subscribe':'Unsubscribe'}}
+        </button>
+
+    </div>
+</div>

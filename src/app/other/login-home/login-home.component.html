@@ -1,0 +1,14 @@
+<div *ngIf="token.length>0">
+
+    <h3>Employees</h3>
+    <div class="form-group">
+        <ul>
+            <li class="form-control" *ngFor="let emp of employees"> 
+               <div style="height: 3em;" > {{emp.empId}}<span>    --    </span><strong>{{emp.name}}</strong><span style="float: right;" class="btn btn-primary" (click)="navigate(emp)">View Profile</span></div>
+            </li>
+    
+        </ul>
+    </div>
+    
+    <button class="btn btn-danger" (click)="logOut()">Log Out</button>
+</div>

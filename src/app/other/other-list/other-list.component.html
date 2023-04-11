@@ -1,0 +1,6 @@
+<div class="form-control">
+    <h3>Other - Home</h3>
+    <ul>
+        <li *ngFor="let x of navigationList" class="active" [routerLink]="[x.link]">{{x.name}}</li>
+    </ul>
+</div>

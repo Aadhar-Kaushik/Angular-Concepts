@@ -1,0 +1,6 @@
+<h3>Catch Error Throw Error</h3>
+
+<button class="btn btn-primary" (click)="fetchDetails()">Fetch Data</button>
+<div class="alert alert-danger" *ngIf="error!==null">
+    {{error}}
+</div>

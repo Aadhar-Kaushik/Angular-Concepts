@@ -1,0 +1,41 @@
+<h3>Combine Latest, With Latest From, Zip and Fork</h3>
+<div class="row">
+    <div class="col-6">
+        <strong>Name</strong>
+        <br>
+        <select #nameDD>
+            <option *ngFor="let item of nameSource" value={{item}}>{{item}}</option>
+        </select>
+    </div>
+    <div class="col-6">
+        <strong>Color</strong>
+        <br>
+        <select #colorDD>
+            <option *ngFor="let item of colorSource" value={{item}}>{{item}}</option>
+        </select>
+    </div>
+    <div class="col-6">
+        <strong>CombineLatest</strong>
+        <br>
+        <ul id="elContainer1"></ul>
+    </div>
+    <div class="col-6">
+        <strong>WithLatestFrom</strong>
+        <br>
+        <ul id="elContainer2"></ul>
+
+    </div>
+    <div class="col-6">
+        <strong>Zip</strong>
+        <br>
+        <ul id="elContainer3"></ul>
+
+    </div>
+    <div class="col-6">
+        <strong>Fork Join</strong>
+        <br>
+        <ul id="elContainer4"></ul>
+
+    </div>
+
+</div>

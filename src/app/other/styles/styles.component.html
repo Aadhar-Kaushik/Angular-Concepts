@@ -1,0 +1,18 @@
+<h3>Styles</h3>
+<div class="form-control"><button class="btn btn-primary" (click)="toggle1=!toggle1"
+    [style.color]="toggle1?'white':'black'"
+    [style.background]="toggle1?'green':'salmon'"
+    >Toggle</button></div>
+<div class="form-control"><button class="btn btn-primary" (click)="toggle2=!toggle2"
+    [ngStyle]="{
+        color:toggle2?'white':'black',
+        background:toggle2?'green':'salmon'
+    }"
+    >Toggle</button></div>
+<div class="form-control"><button class="btn btn-primary" (click)="toggle3=!toggle3"
+    [ngClass]="{green:toggle3,red:!toggle3}"
+    >Toggle</button></div>
+<div class="form-control"><button class="btn btn-primary" (click)="toggle4=!toggle4"
+    [class.red]="!toggle4"
+    [class.green]="toggle4"
+    >Toggle</button></div>
