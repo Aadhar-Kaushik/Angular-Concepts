@@ -1,3 +1,30 @@
 <h2>Promise</h2>
 
-<strong>{{promiseVal | json}}</strong>
+<strong>{{val | json}}</strong>
+<br/>
+<strong>{{val2}}</strong>
+
+<br>
+
+<div class="row">
+    <div class="col-md-4">
+        <div>Promise</div>
+        <button class="btn btn-primary" (click)="fetch1()">Fetch 1</button>
+        <div id="res1"></div>
+    </div>
+    <div class="col-md-4">
+        <div>Async/await</div>
+        <button class="btn btn-primary" (click)="fetch2()">Fetch 2</button>
+        <div id="res2"></div>
+    </div>
+    <div class="col-md-4">
+        <div>Promise Fetch</div>
+        <button class="btn btn-primary" (click)="fetch3()">Fetch 3</button>
+        <div id="res3"></div>
+    </div>
+    <div class="col-md-4">
+        <div>Async/Await Fetch</div>
+        <button class="btn btn-primary" (click)="fetch4()">Fetch 4</button>
+        <div id="res4"></div>
+    </div>
+</div>
