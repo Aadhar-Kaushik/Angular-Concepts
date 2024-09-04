@@ -1,23 +1,17 @@
 <h3>Async Subject</h3>
 
 <div class="row">
-    <div class="col-10">
-
-        <input type="text" #vid />
-        <br>
-        <br>
-        <button class="btn btn-primary" (click)="addVideo(vid)">Add Video</button>
+    <div class="col-12"><input type="text" #inp>
+        <button class="btn btn-primary" (click)="onClickAddBtn(inp)">Add Video</button></div>
+    <div class="col-4">
+       <strong>Emitted Video : </strong>{{video}}
     </div>
-    <br>
-    <br>
-    <div class="card col-4">
-        <div class="card-head"><strong>Complete Subscription</strong></div>
-        <div class="card-body">
-           <strong>{{name}}</strong>
-        </div>
-        <button class="btn btn-success" (click)="btnClick()" >
-            Complete Subscription
-        </button>
+    <div class="col-4">
+        
+        <button 
+        (click)="completeSubscriptionHandler()"
+        class="btn btn-success"
+           >Complete Subscription</button>
     </div>
     
 </div>

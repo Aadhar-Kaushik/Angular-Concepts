@@ -1,19 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { DesignUtilityService } from '../design-utility.service';
+import { DseignUtilityService } from '../dseign-utility.service';
 
 @Component({
   selector: 'app-subject',
   templateUrl: './subject.component.html',
-  styleUrls: ['./subject.component.css']
+  styleUrls: ['./subject.component.scss']
 })
 export class SubjectComponent implements OnInit {
 
-  constructor(private du:DesignUtilityService) { }
-uname=""
+  constructor(private du:DseignUtilityService) { }
+
+  name = ""
   ngOnInit(): void {
-    this.du.username.subscribe(data=>{
-      this.uname=data
+    this.du.name.subscribe(data=>{
+      this.name=data
     })
+  }
+
+  onChangeHandler(name) {
+    this.du.name.next(name.value)
   }
 
 }

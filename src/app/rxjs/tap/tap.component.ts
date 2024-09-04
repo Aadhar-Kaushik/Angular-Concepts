@@ -1,31 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import {  interval, map, Subscription, tap } from 'rxjs';
-import { DesignUtilityService } from '../design-utility.service';
+import { from, interval, map, Subscription, tap } from 'rxjs';
+import { DseignUtilityService } from '../dseign-utility.service';
 
 @Component({
   selector: 'app-tap',
   templateUrl: './tap.component.html',
-  styleUrls: ['./tap.component.css']
+  styleUrls: ['./tap.component.scss']
 })
 export class TapComponent implements OnInit {
 
-  constructor(private du: DesignUtilityService) { }
-
+  constructor(private du: DseignUtilityService) { }
+  color = ""
+  subs1: Subscription
+  subs2: Subscription
   ngOnInit(): void {
-    const arr = ["Adam", "Bunny", "Charley", "Danny", "Evan", "Frank"]
-    let subs: Subscription
-    subs=interval(1000)
+    const arr = ["Adam", "Billy", "Charles", "David", "Evan", "Frank"]
+    const colors = ["green", "blue", "red", "yellow", "pink", "orange"]
+
+    this.subs1 = interval(1000)
       .pipe(
-        tap(res=>{
-          if(res===3){
-            subs.unsubscribe();
+        map(e => arr[e]),
+        tap(e => {
+          if (e === undefined) {
+            this.subs1.unsubscribe()
           }
-        }),
-        map(e => arr[e]))
-      .subscribe(data => {
-        this.du.print("elContainer1", data)
+        })
+      )
+      .subscribe(res => {
+        this.du.print(res, "elContainer1")
       })
 
+    this.subs2 = interval(1000)
+      .pipe(
+
+        map(res => colors[res]),
+        tap(e => {
+          if (e === undefined) {
+            this.subs2.unsubscribe()
+          }
+        })
+      )
+      .subscribe(data => {
+        this.color = data
+        this.du.print(data,"elContainer2")
+      })
   }
 
 }

@@ -1,44 +1,53 @@
-import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import {  CommonService } from './appinit.service';
-import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { ObservableComponent } from './observable/observable.component';
+import { ObservableHomeComponent } from './observable-home/observable-home.component';
+import {HttpClientModule} from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
+import { ServService } from './concepts/serv.service';
 
 
-const serviceLoader1=(serv:CommonService)=>{
-return ()=> serv.fetchData1()
+const servLoaderObs=(serv:ServService)=>{
+  return ()=>serv.fetchUsersObs()
 }
 
-const serviceLoader2=(serv:CommonService)=>{
-  return ()=>serv.fetchData2()
+const servLoaderPro=(serv:ServService)=>{
+  return ()=>serv.fetchUsersPro()
 }
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    PageNotFoundComponent,
+    WelcomeComponent,
+    ObservableComponent,
+    ObservableHomeComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
-    CommonService,
     {
-      provide: APP_INITIALIZER,
-      useFactory: serviceLoader1,
-      deps: [CommonService],
-      multi: true,
+      provide:APP_INITIALIZER,
+      useFactory:servLoaderObs,
+      deps:[ServService],
+      multi:true
     },
     {
-      provide: APP_INITIALIZER,
-      useFactory: serviceLoader2,
-      deps: [CommonService],
-      multi: true,
-    },
+      provide:APP_INITIALIZER,
+      useFactory:servLoaderPro,
+      deps:[ServService],
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,42 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { from, interval, map, Subscription } from 'rxjs';
-import { DesignUtilityService } from '../design-utility.service';
+import { DseignUtilityService } from '../dseign-utility.service';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
 
-  constructor(private du: DesignUtilityService) { }
-  subs: Subscription
+  subs1: Subscription
+  subs2: Subscription
+  constructor(private du: DseignUtilityService) { }
+
   ngOnInit(): void {
+
     // Ex - 01
-    const broadcastVideo = interval(1000)
-    this.subs = broadcastVideo
-      .pipe(map(e => "Video " + e))
-      .subscribe(data => {
-        this.du.print("elContainer1", data)
+    this.subs1 = interval(1000)
+      .pipe(map(data => "Video " + (data + 1)))
+      .subscribe(res => {
+        this.du.print(res, "elContainer1")
+
         setTimeout(() => {
-          this.subs.unsubscribe()
+          this.subs1.unsubscribe()
         }, 10000);
       })
 
-      // Ex - 02
-      from([
-        {name:"Adam",id:1001},
-        {name:"Binny",id:1002},
-        {name:"Charley",id:1003},
-        {name:"Danny",id:1004},
-        {name:"Evan",id:1005},
-        {name:"Frank",id:1006},
-      ])
-      .pipe(map(e=>e["name"]))
-      .subscribe(data=>{
-        this.du.print("elContainer2",data)
+    // Ex - 02
+    this.subs2 = interval(1000)
+      .pipe(map(data => data * 2))
+      .subscribe(res => {
+        this.du.print(res.toString(), "elContainer2")
+        setTimeout(() => {
+          this.subs2.unsubscribe()
+        }, 10000);
       })
+      
+      // Ex - 03
+      from([{name:"Adam",skill:"JS"}, {name:"Billy",skill:"HTML"}, {name:"Charles",skill:"TS"}, {name:"David",skill:"CSS"}, {name:"Evan",skill:"React JS"}, {name:"Frank",skill:"Vue JS"}])
+      .pipe(map(data=>data.name))
+      .subscribe(res=>{
+        this.du.print(res,"elContainer3")
+      })
+    }
 
-  }
-
+      
 }

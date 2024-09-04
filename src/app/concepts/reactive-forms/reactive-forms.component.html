@@ -1,0 +1,27 @@
+<h3>Reactive Form</h3>
+<form [formGroup]="f" (ngSubmit)="log(f)">
+        <div class="form-control"><label for="username">
+                        Username: <input type="text" formControlName="username"></label>
+                <div *ngIf="uname.touched && uname.errors" class="alert alert-danger">
+                        <div *ngIf="uname.errors['required']">
+                                Reqd!
+                        </div>
+                        <div *ngIf="uname.errors['minlength']">
+                                {{uname.errors['minlength'].requiredLength}} Reqd
+                        </div>
+                        <div *ngIf="uname.errors['space']">
+                                Space not Reqd
+                        </div>
+                        <div *ngIf="!uname.errors['unique']">
+                                Not Unique
+                        </div>
+                </div>
+
+        </div>
+        <div class="form-control"><label for="username">
+                        Password: <input type="text" formControlName="password"></label></div>
+
+
+        <button type="submit" class="btn btn-primary" >Submit</button>
+{{f.value |json}}
+</form>

@@ -5,44 +5,42 @@ import { delay, retry, retryWhen, scan } from 'rxjs';
 @Component({
   selector: 'app-retry',
   templateUrl: './retry.component.html',
-  styleUrls: ['./retry.component.css']
+  styleUrls: ['./retry.component.scss']
 })
 export class RetryComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
-  status = "noData"
-  badge = ""
+  constructor(private http: HttpClient) { }
+
   ngOnInit(): void {
   }
-  fetchData() {
-    this.status="fetching"
-    this.getData()
-    .pipe(
-      // retry(3),
-      retryWhen(err=>err.pipe(
-        delay(1000),
-        scan(retryCount=>{
-          if(retryCount>=5){
-            throw err
-          }else{
-            retryCount+=1
-            this.badge="Retry Attempt #"+retryCount
-            return retryCount
+  data = []
+  status = ""
+  fetch() {
+    this.status = "Fetching..."
+    this.http.get('https://jsonplaceholder.typicode.com/tXodos/1')
+      // .pipe(retry(4))
+      .pipe(retryWhen((err) => err.pipe(
+        delay(2000),
+        scan(count => {
+          if (count >= 3) {
+            throw err;
+
+          } else {
+            count++
+            this.status="Retrying Attempt #"+count
+            return count
           }
-        },0)
-      ))
+        }, 0)
       )
-    .subscribe(data => {
-      this.status="success"
-      console.log(data)
-    },
-    err=>{
-      this.status="error"
 
-    })
+      ))
+      .subscribe((res: any) => {
+        this.data.push(res)
+        this.status = "Success!"
+      },
+        err => {
+          console.log(err)
+          this.status = "Error!"
+        })
   }
-  getData() {
-    return this.httpClient.get("https://jsonplaceholder.typicode.com/posts")
-  }
-
 }

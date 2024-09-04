@@ -1,32 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { concat, interval, map, merge, take } from 'rxjs';
-import { DesignUtilityService } from '../design-utility.service';
+import { DseignUtilityService } from '../dseign-utility.service';
 
 @Component({
   selector: 'app-concat-merge',
   templateUrl: './concat-merge.component.html',
-  styleUrls: ['./concat-merge.component.css']
+  styleUrls: ['./concat-merge.component.scss']
 })
 export class ConcatMergeComponent implements OnInit {
 
-  constructor(private du: DesignUtilityService) { }
+  constructor(private du: DseignUtilityService) { }
 
   ngOnInit(): void {
-    const source1 = interval(1500).pipe(map(e => "Comedy #" + (e + 1)), take(5))
-    const source2 = interval(1000).pipe(map(e => "Tech #" + (e + 1)), take(6))
-    const source3 = interval(2000).pipe(map(e => "Movie #" + (e + 1)), take(4))
 
-    // Concat
-    concat(source1, source2, source3)
-      .subscribe(data => {
-        this.du.print("elContainer1", data)
-      })
+    const source1 = interval(3000).pipe(take(3), map(e => "Tech #" + (e + 1)))
+    const source2 = interval(1000).pipe(take(2), map(e => "Comedy #" + (e + 1)))
+    const source3 = interval(2500).pipe(take(4), map(e => "News #" + (e + 1)))
 
-      // Merge
-      merge(source1,source2,source3)
-      .subscribe(data=>{
-        this.du.print("elContainer2",data)
-      })
+    source1.subscribe(data=>{
+      this.du.print(data,"elContainer1")
+    })
+    source2.subscribe(data=>{
+      this.du.print(data,"elContainer2")
+    })
+    source3.subscribe(data=>{
+      this.du.print(data,"elContainer3")
+    })
+    
+    concat(source1,source2,source3).subscribe(data=>{
+      this.du.print(data,"elContainer4")
+
+    })
+    merge(source1,source2,source3).subscribe(data=>{
+      this.du.print(data,"elContainer5")
+
+    })
   }
 
 }

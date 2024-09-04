@@ -1,7 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Navbar</a>
+ 
+  <div  id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="concepts">Concepts</a>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="rxjs" >RXJS</a>
+    </div>
+  </div>
+</nav>
+<strong>{{envt | json}}</strong>
+<br>
 <router-outlet></router-outlet>
 
-<hr>
-<hr>
-<strong>Environment</strong>
-<br>
-{{envt |json}}

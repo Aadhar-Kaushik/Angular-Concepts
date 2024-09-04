@@ -1,0 +1,10 @@
+<h3>Catch and Throw Error</h3>
+
+
+<br>
+<br>
+<button class="btn btn-primary" (click)="fetchData()">Fetch</button>
+<br>
+<br>
+<span *ngIf="error.length>0" style="color: red;">{{error}}</span>
+<span *ngIf="data.length>0" style="color: green;">{{data}}</span>

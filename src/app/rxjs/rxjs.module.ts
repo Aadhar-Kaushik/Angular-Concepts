@@ -1,70 +1,40 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RXJSRoutingModule } from './rxjs-routing.module';
-import { RXJSHomeComponent } from './rxjs-home/rxjs-home.component';
+import { RxjsHomeComponent } from './rxjs-home/rxjs-home.component';
+import { RxjsRoutingModule } from './rxjs-routing.module';
 import { PromiseComponent } from './promise/promise.component';
 import { FromEventComponent } from './from-event/from-event.component';
 import { IntervalTimerComponent } from './interval-timer/interval-timer.component';
 import { OfFromComponent } from './of-from/of-from.component';
 import { ToArrayComponent } from './to-array/to-array.component';
-import { CustomObservableComponent } from './custom-observable/custom-observable.component';
+import { CustomObsComponent } from './custom-obs/custom-obs.component';
 import { MapComponent } from './map/map.component';
-import { FilterComponent } from './filter/filter.component';
 import { PluckComponent } from './pluck/pluck.component';
+import { FilterComponent } from './filter/filter.component';
 import { TapComponent } from './tap/tap.component';
 import { TakeComponent } from './take/take.component';
 import { RetryComponent } from './retry/retry.component';
-import {HttpClientModule} from "@angular/common/http";
 import { DebounceComponent } from './debounce/debounce.component';
 import { SubjectComponent } from './subject/subject.component';
 import { ReplaySubjectComponent } from './replay-subject/replay-subject.component';
 import { AsyncSubjectComponent } from './async-subject/async-subject.component';
-import { SubjectEx1Component } from './subject-ex1/subject-ex1.component';
-import { SubjectEx2Component } from './subject-ex2/subject-ex2.component';
-import { SubjectEx3Component } from './subject-ex3/subject-ex3.component'
-import { FormsModule } from '@angular/forms';
 import { ConcatMergeComponent } from './concat-merge/concat-merge.component';
-import { ConcatmapMergemapSwitchMapComponent } from './concatmap-mergemap/concatmap-mergemap.component';
-import { ExhaustmapComponent } from './exhaustmap/exhaustmap.component';
+import { ConcatmapMergemapSwitchmapComponent } from './concatmap-mergemap-switchmap/concatmap-mergemap-switchmap.component';
+import { ExhauseMapComponent } from './exhause-map/exhause-map.component';
 import { ShareReplayComponent } from './share-replay/share-replay.component';
-import { CombineLatestWithLatestFromZipForkComponent } from './combine-latest-with-latest-from/combine-latest-with-latest-from.component';
-import { CatchErrorThrowErrorrComponent } from './catch-error-throw-errorr/catch-error-throw-errorr.component';
+import { CombinelatestWithlatestfromZipForkComponent } from './combinelatest-withlatestfrom-zip-fork/combinelatest-withlatestfrom-zip-fork.component';
+import { CatchErrorThrowErrorComponent } from './catch-error-throw-error/catch-error-throw-error.component';
+import { Comp1Component } from './subject/comp1/comp1.component';
+import { Comp2Component } from './subject/comp2/comp2.component';
+import { Comp3Component } from './subject/comp3/comp3.component';
+
 
 
 @NgModule({
-  declarations: [
-    RXJSHomeComponent,
-    PromiseComponent,
-    FromEventComponent,
-    IntervalTimerComponent,
-    OfFromComponent,
-    ToArrayComponent,
-    CustomObservableComponent,
-    MapComponent,
-    FilterComponent,
-    PluckComponent,
-    TapComponent,
-    TakeComponent,
-    RetryComponent,
-    DebounceComponent,
-    SubjectComponent,
-    ReplaySubjectComponent,
-    AsyncSubjectComponent,
-    SubjectEx1Component,
-    SubjectEx2Component,
-    SubjectEx3Component,
-    ConcatMergeComponent,
-    ConcatmapMergemapSwitchMapComponent,
-    ExhaustmapComponent,
-    ShareReplayComponent,
-    CombineLatestWithLatestFromZipForkComponent,
-    CatchErrorThrowErrorrComponent
-  ],
+  declarations: [RxjsHomeComponent, PromiseComponent, FromEventComponent, IntervalTimerComponent, OfFromComponent, ToArrayComponent, CustomObsComponent, MapComponent, PluckComponent, FilterComponent, TapComponent, TakeComponent, RetryComponent, DebounceComponent, SubjectComponent, ReplaySubjectComponent, AsyncSubjectComponent, ConcatMergeComponent, ConcatmapMergemapSwitchmapComponent, ExhauseMapComponent, ShareReplayComponent, CombinelatestWithlatestfromZipForkComponent, CatchErrorThrowErrorComponent, Comp1Component, Comp2Component, Comp3Component],
   imports: [
     CommonModule,
-    RXJSRoutingModule,
-    HttpClientModule,
-    FormsModule
+    RxjsRoutingModule
   ]
 })
-export class RXJSModule { }
+export class RxjsModule { }

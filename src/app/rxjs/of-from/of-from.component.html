@@ -1,37 +1,22 @@
-<h3>Of</h3>
+<h3>Of and From</h3>
 
 <div class="row">
-    
-    <div class="card col-4">
-        <div class="card-head"><strong>of(Adam, Billy,Charley,Danny,Evan)</strong></div>
-        <div class="card-body">
-            <ul id="elContainer1"></ul>
-        </div>
+    <div class="col-6">
+        <strong>of("Adam","Bob","Charles","Drake")</strong>
+        <ul id="elContainer1"></ul>
     </div>
-    <div class="card col-4">
-        <div class="card-head"><strong>of(&#123;a:"Adam",b:"Billy",c:"Charles"&#125;)</strong></div>
-        <div class="card-body">
-            <ul id="elContainer2"></ul>
-        </div>
+    <div class="col-6">
+        <strong>of(&#123;a:"Adam",b:"Bob",c:"Charles",d:"Drake"&#125;)</strong>
+        <ul>
+            <li>a:{{obj.a}}</li>
+            <li>b:{{obj.b}}</li>
+            <li>c:{{obj.c}}</li>
+            <li>d:{{obj.d}}</li>
+        </ul>
     </div>
-    <br>
-    <h3>From</h3>
-    <div class="card col-4">
-        <div class="card-head"><strong>From Array</strong></div>
-        <div class="card-body">
-            <ul id="elContainer3"></ul>
-        </div>
+    <div class="col-4">
+        <strong>from(["Adam","Bob","Charles","Drake"])</strong>
+        <ul id="elContainer2"></ul>
     </div>
-    <div class="card col-4">
-        <div class="card-head"><strong>From Promise</strong></div>
-        <div class="card-body">
-            <ul id="elContainer4"></ul>
-        </div>
-    </div>
-    <div class="card col-4">
-        <div class="card-head"><strong>From String</strong></div>
-        <div class="card-body">
-            <ul id="elContainer5"></ul>
-        </div>
-    </div>
-    </div>
+</div>
+

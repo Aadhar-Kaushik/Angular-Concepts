@@ -1,27 +1,22 @@
 <h3>Share Replay</h3>
 <div class="row">
-    <div class="col-3">
-        <strong>All User Data</strong>
+    <div class="col-5">
+        <strong>All Users</strong>
         <ul>
-            <li *ngFor="let item of allUserData | async">
-                {{item.userId}} -- {{item.title}}
-            </li>
+            <li *ngFor="let all of allUsers | async">{{all["id"]}}--{{all["name"]}}</li>
         </ul>
     </div>
-    <div class="col-3">
-        <strong>User Id 1 Data</strong>
+    <br>
+    <div class="col-5">
+        <strong>User 1</strong>
         <ul>
-            <li *ngFor="let item of userId1Data | async">
-                {{item.userId}} -- {{item.title}}
-            </li>
+            <li *ngFor="let u of user1 | async">{{u["id"]}}--{{u["name"]}}</li>
         </ul>
     </div>
-    <div class="col-3">
-        <strong>User Id 2 Data</strong>
+    <div class="col-5">
+        <strong>User 2</strong>
         <ul>
-            <li *ngFor="let item of userId2Data | async">
-                {{item.userId}} -- {{item.title}}
-            </li>
+            <li *ngFor="let u of user2 | async">{{u["id"]}}--{{u["name"]}}</li>
         </ul>
     </div>
 </div>

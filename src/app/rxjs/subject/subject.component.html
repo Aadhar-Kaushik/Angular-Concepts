@@ -1,10 +1,20 @@
-<h3>Subject</h3>
-Username is : <strong>{{uname}}</strong>
-<br>
-<hr>
-<br>
-<div class="row">
-    <div class="col-3"><app-subject-ex1></app-subject-ex1></div>
-    <div class="col-3"><app-subject-ex2></app-subject-ex2></div>
-    <div class="col-3"><app-subject-ex3></app-subject-ex3></div>
+<h3>Subject and Behaviour Subject</h3>
+
+<div style="width: 30%; margin: 2em;">
+    <span>Username is <strong class="text-primary">{{name}}</strong></span>
+    <br>
+    <input #uname class="form-control" type="text" />
+    <br>
+    <button class="btn btn-primary" (click)="onChangeHandler(uname)">Change</button>
+</div>
+<div style="margin: 2em;" class="row">
+    <div class="col-4">
+        <app-comp1></app-comp1>
+    </div>
+    <div class="col-4">
+        <app-comp2></app-comp2>
+    </div>
+    <div class="col-4">
+        <app-comp3></app-comp3>
+    </div>
 </div>

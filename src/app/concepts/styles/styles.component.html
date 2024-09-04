@@ -1,0 +1,20 @@
+<h3>Styles</h3>
+<div class="row">
+    <div class="col-4"><button class="btn btn-primary" [style.color]="flag1?'black':'white'"
+            [style.background]="flag1?'salmon':'green'" (click)="flag1=!flag1">Toggle 1</button></div>
+    <div class="col-4"><button class="btn btn-primary" [ngClass]="flag2?'red':'green'" (click)="flag2=!flag2">Toggle
+            2</button></div>
+    <div class="col-4"><button class="btn btn-primary" 
+        (click)="flag3=!flag3"
+        [ngClass]="{red:flag3,green:!flag3}"
+        >Toggle 3</button></div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="col-4"><button class="btn btn-primary"
+            [class.red]="flag4"
+            [class.green]="!flag4"
+            (click)="flag4=!flag4"
+        >Toggle 4</button></div>
+</div>

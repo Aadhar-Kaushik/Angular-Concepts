@@ -1,0 +1,12 @@
+<h3>Hook Parent</h3>
+
+<input #inp/>
+<button class="btn btn-primary" (click)="onClickBtn(inp)">Get Value</button>
+<br>
+<button class="btn btn-success" (click)="showChild=!showChild">Toggle Child</button>
+<hr/>
+<app-hook-child [val]="input"
+*ngIf="showChild"
+>
+    Hello {{input}}
+</app-hook-child>

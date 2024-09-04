@@ -1,0 +1,39 @@
+<h3>Template Driven Form</h3>
+<form ngForm #f="ngForm" (ngSubmit)="log(f)">
+    <div class="form-control"><label for="username">
+            Username: <input name="username" ngModel required minlength="3" pattern="Aadhar" #username="ngModel"
+                type="text"></label>
+        <div *ngIf="username.touched &&  username.errors" class="alert alert-danger">
+            <div *ngIf="username['errors']['required']">
+                Reqd!
+            </div>
+            <div *ngIf="username['errors']['minlength']">
+                Min Length {{username['errors']['minlength']["length"]}} reqd!
+            </div>
+            <div *ngIf="username['errors']['pattern']">
+                Pattern Aadhar reqd!
+            </div>
+        </div>
+
+    </div>
+    <div class="form-control"><label for="username">
+            Password: <input type="password" name="password" ngModel #password="ngModel"></label></div>
+    {{f.value|json}}
+
+    <div class="form-control">
+        <select name="dd" ngModel #dd="ngModel">
+            <option *ngFor="let x of list" [value]="x.id">{{x.name}}</option>
+        </select>
+    </div>
+    <div class="form-control">
+        <input type="checkbox" name="check" ngModel #check="ngModel"/>
+    </div>
+    <div class="form-control">
+        <label *ngFor="let x of list">
+            <input type="radio" name="radio" ngModel #radio="ngModel" 
+            [value]="x.id"/>{{x.name}}
+        </label>
+        
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>

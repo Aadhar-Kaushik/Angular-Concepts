@@ -1,33 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { filter, from, map } from 'rxjs';
-import { DesignUtilityService } from '../design-utility.service';
+import { DseignUtilityService } from '../dseign-utility.service';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
 
-  constructor(private du:DesignUtilityService) { }
+  constructor(private du: DseignUtilityService) { }
 
   ngOnInit(): void {
 
-     const arr = [
-      { name: "Adam", id: 1001},
-      { name: "Billy", id: 1002},
-      { name: "Charley", id: 1003},
-      { name: "Danny", id: 1004},
-      { name: "Evan", id: 1005},
-      { name: "Frank", id: 1006}
-    ]
-    from(arr)
-    .pipe(
-      filter(e=>e.id<=1003),
-      map(e=>e.id+" -- "+e.name))
-    .subscribe(data=>{
-      this.du.print("elContainer1",data)
-    })
+    const obs = from([
+      {
+        id: 1, name: "Adam", skill: "JS"
+      },
+      {
+        id: 2, name: "Billy", skill: "HTML"
+      },
+      {
+        id: 3, name: "Charles", skill: "TS"
+      },
+      {
+        id: 4, name: "David", skill: "CSS"
+      },
+      {
+        id: 5, name: "Evan", skill: "React JS"
+      },
+      {
+        id: 6, name: "Frank", skill: "Vue JS"
+      }
+    ])
+
+    obs
+      .pipe(
+        filter(x => x.name.length <= 4),
+        map(x => x.id + "--" + x.name + "--" + x.skill))
+      .subscribe(data => {
+        this.du.print(data, "elContainer1")
+      })
+    obs
+      .pipe(
+        filter(x => x.id<4),
+        map(x => x.id + "--" + x.name + "--" + x.skill))
+      .subscribe(data => {
+        this.du.print(data, "elContainer2")
+      })
+
+
   }
 
 }

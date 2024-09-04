@@ -1,0 +1,8 @@
+<h3>Pipe</h3>
+
+<div class="form-control">
+    <input #inp (keyup)="onChangeHandler(inp)"/>
+</div>
+<div class="form-control">
+   output: {{value | CustomPipe :"aaa":"bbb"}}
+</div>

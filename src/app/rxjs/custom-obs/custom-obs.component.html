@@ -1,0 +1,25 @@
+<h3>Custom Observable</h3>
+
+<div class="row">
+    <div class="col-5">
+        <strong>Ex - 01 Manual</strong>
+        <div>
+            <ul class="list" id="elContainer1" [ngClass]="status==='error'?'error':status==='complete'?'complete':''"></ul>
+        </div>
+    </div>
+    <div class="col-5">
+        <strong>Ex - 02 Custom Interval Observable</strong>
+        <div>
+            <ul class="list" id="elContainer2" [ngClass]="status2==='error'?'error':status2==='complete'?'complete':''"></ul>
+        
+
+        </div>
+    </div>
+    <div class="col-5">
+        <strong>Ex - 03 Random Names</strong>
+        <div>
+            <strong>Current Name : </strong><span style="font-weight: 600px;" [style.color]="status3==='error'?'red':status3==='complete'?'green':''">{{name}}</span>
+
+        </div>
+    </div>
+</div>

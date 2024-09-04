@@ -1,37 +1,62 @@
 import { Component, OnInit } from '@angular/core';
 import { from, pluck } from 'rxjs';
-import { DesignUtilityService } from '../design-utility.service';
+import { DseignUtilityService } from '../dseign-utility.service';
 
 @Component({
   selector: 'app-pluck',
   templateUrl: './pluck.component.html',
-  styleUrls: ['./pluck.component.css']
+  styleUrls: ['./pluck.component.scss']
 })
 export class PluckComponent implements OnInit {
 
-  constructor(private du: DesignUtilityService) { }
+  constructor(private du: DseignUtilityService) { }
 
   ngOnInit(): void {
-    const arr = [
-      { name: "Adam", id: 1001, job: { title: "UI developer", exp: 3 } },
-      { name: "Billy", id: 1002, job: { title: "Angular developer", exp: 5 } },
-      { name: "Charley", id: 1002, job: { title: "React developer", exp: 6 } }
-    ]
+    const obs = from([
+      {
+        name: "Adam", skill: "JS", job: {
+          title: "JS Developer"
+        }
+      },
+      {
+        name: "Billy", skill: "HTML", job: {
+          title: "HTML Developer"
+        }
+      },
+      {
+        name: "Charles", skill: "TS", job: {
+          title: "TS Developer"
+        }
+      },
+      {
+        name: "David", skill: "CSS", job: {
+          title: "CSS Developer"
+        }
+      },
+      {
+        name: "Evan", skill: "React JS", job: {
+          title: "React JS Developer"
+        }
+      },
+      {
+        name: "Frank", skill: "Vue JS", job: {
+          title: "Vue JS Developer"
+        }
+      }
+    ])
 
-    // Ex - 01
-    from(arr)
-      .pipe(pluck("name"))
-      .subscribe(data => {
-        this.du.print("elContainer1", data)
-      })
-      
-      // Ex - 02
-      from(arr)
-      .pipe(pluck("job","title"))
-      .subscribe(data=>{
-        this.du.print("elContainer2", data)
-
-      })
+    // Ex - 01 
+    obs
+    .pipe(pluck("name"))
+    .subscribe(res => {
+      this.du.print(res, "elContainer1")
+    })
+    
+    // Ex - 01 
+    obs.pipe(pluck("job","title"))
+    .subscribe(res=>{
+      this.du.print(res,"elContainer2")
+    })
   }
 
 }

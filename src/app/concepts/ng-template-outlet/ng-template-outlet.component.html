@@ -1,0 +1,28 @@
+<h3>template-outlet</h3>
+
+<button class="btn" [ngClass]="{'btn-danger':flag,'btn-success':!flag}"
+(click)="flag=!flag"
+>{{flag?"OFF":"ON"}}</button>
+
+<div class="row">
+    <div class="col-6">
+        <strong>Button On</strong>
+        <ng-container *ngTemplateOutlet="on"></ng-container>
+    </div>
+    <div class="col-6">
+        <strong>Button Off</strong>
+        <ng-container *ngTemplateOutlet="off"></ng-container>
+    </div>
+    <div class="col-6">
+        <strong>Result</strong>
+        <ng-container *ngTemplateOutlet="flag?off:on"></ng-container>
+    </div>
+</div>
+
+<ng-template #on>
+    <img src="../../../assets/Bulb ON.jpg">
+</ng-template>
+<ng-template #off>
+    <img src="../../../assets/Bulb OFF.jpg">
+
+</ng-template>

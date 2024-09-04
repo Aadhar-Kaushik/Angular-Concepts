@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "home", component: HomeComponent },
-  { path: "other-concepts", loadChildren:()=>import("./other/other.module").then(e=>e.OtherModule) },
-  { path: "rxjs", loadChildren:()=>import("./rxjs/rxjs.module").then(e=>e.RXJSModule) },
+  { path: "", component: WelcomeComponent },
+  { path: "rxjs", loadChildren: () => import("./rxjs/rxjs.module").then(m => m.RxjsModule) },
+  { path: "concepts", loadChildren: () => import("./concepts/concepts.module").then(m => m.ConceptsModule) },
+  { path: "**", component: PageNotFoundComponent }
+
 ]
 
 @NgModule({
@@ -16,6 +18,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

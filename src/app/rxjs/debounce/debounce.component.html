@@ -1,19 +1,14 @@
-<h3>Debounce and DistinctUntilChanged</h3>
+<h3>DebounceTime and DistinctUntilChange</h3>
+
 <div class="row">
-    
-    <div class="card col-4">
-        <div class="card-head"><strong>Debounce</strong></div>
-        <div class="card-body">
-            <input #inp1/>
-            <strong *ngIf="search1 !==null" class="text-success">{{search1}}</strong>
-        </div>
+    <div class="col-5">
+        <div>Ex - 01 - DebounceTime</div>
+        <input type="text" #inp1>
+        <div *ngIf="reqData1!==null">Request Data : <strong>{{reqData1}}</strong></div>
     </div>
-    <div class="card col-4">
-        <div class="card-head"><strong>DistinctUntilChanged</strong></div>
-        <div class="card-body">
-            <input #inp2/>
-            <strong *ngIf="search2 !==null"  class="text-success">{{search2}}</strong>
-        </div>
+    <div class="col-5">
+        <div>Ex - 02 - DistinctUntilChange</div>
+        <input type="text" #inp2>
+        <div *ngIf="reqData2!==null">Request Data : <strong>{{reqData2}}</strong></div>
     </div>
-    
-    </div>
+</div>

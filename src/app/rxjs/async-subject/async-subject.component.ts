@@ -1,25 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { AsyncSubject } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { DseignUtilityService } from '../dseign-utility.service';
 
 @Component({
   selector: 'app-async-subject',
   templateUrl: './async-subject.component.html',
-  styleUrls: ['./async-subject.component.css']
+  styleUrls: ['./async-subject.component.scss']
 })
 export class AsyncSubjectComponent implements OnInit {
 
-  constructor() { }
-  name=""
-  asyncSubject= new AsyncSubject<any>()
+  constructor(private du: DseignUtilityService) { }
+  video = ""
   ngOnInit(): void {
-    this.asyncSubject.subscribe(data=>{
-      this.name=data
+   this.du.asyncSub.subscribe(data => {
+      this.video = data
     })
   }
-  addVideo(vid){
-    this.asyncSubject.next(vid.value)
+
+  onClickAddBtn(inp) {
+    this.du.asyncSub.next(inp.value)
   }
-  btnClick(){
-    this.asyncSubject.complete()
+
+  completeSubscriptionHandler() {
+    this.du.asyncSub.complete()
   }
 }

@@ -1,0 +1,8 @@
+<h4>Login Home</h4>
+
+<button (click)="onClickLogout()">Logout</button>
+<div>
+    <div *ngFor="let item of userList" class="form-control" (click)="log(item)">
+        <strong>{{item.empId}}</strong>-- {{item.name}}
+    </div>
+</div>

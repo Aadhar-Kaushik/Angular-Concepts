@@ -1,0 +1,18 @@
+<h3>Login</h3>
+
+<form ngForm #f="ngForm" (ngSubmit)="navigate(f)">
+    <div class="form-control"> <label for="uname">
+            Username :<input name="uname" ngModel #uname="ngModel" required minlength="3" type="text"></label></div>
+    <div *ngIf="uname.touched && uname.errors" class="alert alert-danger">
+        <div *ngIf="uname.errors['required']"> Required</div>
+        <div *ngIf="uname.errors['minlength']"> Min Length {{uname.errors['minlength'].requiredLength}}</div>
+    </div>
+    <div class="form-control"> <label for="pwd">Password :<input type="password" name="pwd" ngModel #pwd="ngModel"
+                required></label></div>
+    <div *ngIf="pwd.touched && pwd.errors" class="alert alert-danger">
+        <div *ngIf="pwd.errors['required']"> Required</div>
+    </div>
+    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+</form>
+<hr/>
+<router-outlet></router-outlet>

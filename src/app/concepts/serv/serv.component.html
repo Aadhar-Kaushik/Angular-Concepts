@@ -1,0 +1,37 @@
+<h3>Service</h3>
+<div style="margin: 1em;">
+
+    <form ngForm="f" #f="ngForm" (ngSubmit)="log(f)">
+
+        <div class="form-control"><label for="name">Name<input type="text" name="name" ngModel #name="ngModel" required
+                    minlength="3"></label>
+            <div *ngIf="name.touched && name.errors" class="alert alert-danger">
+                <div *ngIf="name.errors['required']">
+                    Reqd !
+                </div>
+                <div *ngIf="name.errors['minlength']">
+                    Min Length {{name.errors['minlength']['requiredLength']}}!
+                </div>
+            </div>
+        </div>
+        <div class="form-control"><label for="department">Deartment<input type="text" name="department" ngModel #department="ngModel"
+                    required></label>
+            <div *ngIf="department.touched && department.errors">
+                <div *ngIf="department.errors['required']">
+                    Reqd !
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Submit</button>
+    </form>
+</div>
+<br>
+<table>
+    <tr class="form-control" *ngFor="let item of list">
+        <td>{{item.name}}</td>
+        <td>{{item.department}}</td>
+        <td><button class="btn btn-success" (click)="edit(item.id,item)">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="delete(item.id)">Delete</button></td>
+
+    </tr>
+</table>

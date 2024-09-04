@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RXJSHomeComponent } from './rxjs-home.component';
+import { RxjsHomeComponent } from './rxjs-home.component';
 
-describe('RXJSHomeComponent', () => {
-  let component: RXJSHomeComponent;
-  let fixture: ComponentFixture<RXJSHomeComponent>;
+describe('RxjsHomeComponent', () => {
+  let component: RxjsHomeComponent;
+  let fixture: ComponentFixture<RxjsHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RXJSHomeComponent ]
+      declarations: [ RxjsHomeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RXJSHomeComponent);
+    fixture = TestBed.createComponent(RxjsHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

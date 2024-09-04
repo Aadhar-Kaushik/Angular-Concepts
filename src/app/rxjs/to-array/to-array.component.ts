@@ -1,41 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { from, interval, of, take, toArray } from 'rxjs';
-import { DesignUtilityService } from '../design-utility.service';
 
 @Component({
   selector: 'app-to-array',
   templateUrl: './to-array.component.html',
-  styleUrls: ['./to-array.component.css']
+  styleUrls: ['./to-array.component.scss']
 })
 export class ToArrayComponent implements OnInit {
 
-  constructor(private du:DesignUtilityService) { }
+  constructor() { }
 
   ngOnInit(): void {
+
     // Ex - 01
-    interval(1000).pipe(take(5), toArray())
-    .subscribe(data=>{
-      this.du.print("elContainer1",JSON.stringify(data))
-    })
+    interval(1000)
+      .pipe(
+        take(5),
+        toArray())
+      .subscribe(data => {
+        console.log("Ex - 01", data)
+
+      })
+
 
     // Ex - 02
-    of("Adam","Bradley","Charley","Danny")
-    .pipe(toArray())
-    .subscribe(data=>{
-      this.du.print("elContainer2",JSON.stringify(data))
-    })
+    of("Adam", "Billy", "Charles", "David", "Evan", "Frank")
+      .pipe(toArray())
+      .subscribe(data => {
+        console.log("Ex - 02",data)
+      })
+      // Ex - 03
+      from([{name:"Adam",skill:"JS"}, {name:"Billy",skill:"HTML"}, {name:"Charles",skill:"TS"}, {name:"David",skill:"CSS"}, {name:"Evan",skill:"React JS"}, {name:"Frank",skill:"Vue JS"}])
+      .pipe(toArray())
+      .subscribe(data=>{
+        console.log("Ex - 03",data)
 
-    // Ex - 03
-    const list=[
-      {name:"Adam", skill:"JS"},
-      {name:"Brock", skill:"Angular"},
-      {name:"Charles", skill:"React"}
-    ]
-    from(list)
-    .pipe(toArray())
-    .subscribe(data=>{
-      this.du.print("elContainer3",JSON.stringify(data))
-    })
+      })
   }
 
 }

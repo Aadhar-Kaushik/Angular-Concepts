@@ -1,45 +1,39 @@
 <h3>Replay Subject</h3>
-
 <div class="row">
-    <div class="col-10">
-
-        <input type="text" #vid />
+    <div class="col-12"><input type="text" #inp>
+        <button class="btn btn-primary" (click)="onClickAddBtn(inp)">Add Video</button></div>
+    <div class="col-4">
+        <strong>Video: 1</strong>
+        <ul>
+            <li *ngFor="let item of list1">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <strong>Video: User 2</strong>
+        <ul>
+            <li *ngFor="let item of list2">
+                {{item}}
+            </li>
+        </ul>
         <br>
+        <button 
+        (click)="onSubsUnSubs2()"
+        class="btn"
+            [ngClass]="{'btn-success':!isSubscribed2,'btn-danger':isSubscribed2}">{{isSubscribed2?"Unsubscribe":"Subscribe"}}</button>
+    </div>
+    <div class="col-4">
+        <strong>Video: User 3</strong>
+        <ul>
+            <li *ngFor="let item of list3">
+                {{item}}
+            </li>
+        </ul>
         <br>
-        <button class="btn btn-primary" (click)="addVideo(vid)">Add Video</button>
-    </div>
-    <br>
-    <br>
-    <div class="card col-4">
-        <div class="card-head"><strong>User 1</strong></div>
-        <div class="card-body">
-            <ul id="elContainer1">
-                <li *ngFor="let u of user1List">{{u}}</li>
-            </ul>
-        </div>
-    </div>
-    <div class="card col-4">
-        <div class="card-head"><strong>User 2</strong></div>
-        <div class="card-body">
-            <ul id="elContainer2">
-                <li *ngFor="let u of user2List">{{u}}</li>
-            </ul>
-        </div>
-        <button class="btn" (click)="btn2Click()" [ngClass]="toggle2?'btn-success':'btn-danger'">
-            {{toggle2?'Subscribe':'Unsubscribe'}}
-        </button>
-
-    </div>
-    <div class="card col-4">
-        <div class="card-head"><strong>User 3</strong></div>
-        <div class="card-body">
-            <ul id="elContainer3">
-                <li *ngFor="let u of user3List">{{u}}</li>
-            </ul>
-        </div>
-        <button class="btn" (click)="btn3Click()" [ngClass]="toggle3?'btn-success':'btn-danger'">
-            {{toggle3?'Subscribe':'Unsubscribe'}}
-        </button>
-
+        <button 
+        (click)="onSubsUnSubs3()"
+        class="btn"
+        [ngClass]="{'btn-success':!isSubscribed3,'btn-danger':isSubscribed3}">{{isSubscribed3?"Unsubscribe":"Subscribe"}}</button>
     </div>
 </div>
