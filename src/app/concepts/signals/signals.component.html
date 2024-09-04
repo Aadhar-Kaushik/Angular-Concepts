@@ -1,18 +1,39 @@
-<!-- <h3>Signals</h3>
+<h3>Signals</h3>
 
 <div class="row">
-    <div class="col-5">
+    <div class="col-md-4">
         <strong>First Name</strong>
-        <div>{{firstName}}</div>
+        <div>{{firstName()}}</div>
+        <strong>Set</strong>
+        <br/>
+        <input #fname [value]="firstName()" />
+        
+        <button class="btn btn-primary" (click)="onChangeFirstName(fname)">Change</button>
     </div>
-    <div class="col-5">
+    <div class="col-4">
         <strong>Last Name</strong>
-        <div>{{lastName}}</div>
+        <div>{{lastName()}}</div>
+        <strong>Set</strong>
+        <br/>
+        <input #lname [value]="lastName()" />
+        <button class="btn btn-primary" (click)="onChangeLastName(lname)">Change</button>
         
     </div>
-    <div class="col-2">
+    <div class="col-4">
         <strong>Full Name</strong>
-        <div>{{fullName}}</div>
+        <div>{{fullName()}}</div>
 
     </div>
-</div> -->
+</div>
+<div class="update">
+    <strong >Update</strong>
+    <br/>
+   <button class="btn btn-primary"  (click)="onDec()">-</button>
+   <strong >{{count()}}</strong>
+   <button class="btn btn-primary" (click)="onInc()">+</button>
+</div>
+
+<div>
+    <strong>Effect: </strong>
+    <span id="effect"></span>
+</div>
