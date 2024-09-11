@@ -58,14 +58,18 @@ export class ServComponent implements OnInit {
     const req={...item}
     req.name = "Updated " + req.name
     delete req.id
+    // Put me poori req put krte hain
     this.serv.editPutUsersFromCloud(id, req).subscribe(data => {
         console.log(data)
         this.fetchData()
       
       })
+      
       // const req={
       //   department:"Updated"
       // }
+      // patch me sirf additional param patch krte hain
+
       // this.serv.editPatchUsersFromCloud(id, req).subscribe(data => {
       //   console.log(data)
       //   this.fetchData()
